@@ -1,4 +1,6 @@
-# Nordcloud Serverless Boilerplate
+# App-Arena Serverless Boilerplate
+
+Heavily inspired by [Nordcloud Serverless boilerplate](https://github.com/nordcloud/serverless-boilerplate).
 
 The Nordcloud serverless-boilerplate is a project template for new serverless services. Contents of the template:
 * plugin [serverless-mocha-plugin](https://github.com/SC5/serverless-mocha-plugin): enable test driven development using mocha, creation of functions from command line
@@ -20,6 +22,11 @@ With Serverless Framework v1.5 and later, a new project based on the project tem
 > cd myservicename
 > npm install
 ```
+
+## Environments
+
+`dev`, `stage`, `prod`: You can configure each of them by changing the
+configuration in `config/{STAGE}.yml`.
 
 ## Testing vulnerabilities
 

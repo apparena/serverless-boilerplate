@@ -5,13 +5,28 @@ service: serverless-boilerplate # NOTE: update this with your service name
 provider:
   name: aws
   runtime: nodejs8.10
+  #timeout: 240
+  #memorySize: 512
+  #versionFunctions: false # optional, default is true
+  stage: ${opt:stage, "dev"}
+  region: ${opt:region, "eu-central-1"}
+  vpc: ${file(config/${self:provider.stage}.yml):vpc}
+
   cfLogs: true
-  environment:
-    SERVERLESS_STAGE: ${opt:stage, self:provider.stage}
-    SERVERLESS_PROJECT: ${self:service}
-    SERVERLESS_REGION: ${opt:region, self:provider.region}
-    TABLE_NAME: ${self:provider.environment.SERVERLESS_PROJECT}-${self:provider.environment.SERVERLESS_STAGE}
+  environment: ${file(config/${self:provider.stage}.yml):ENVIRONMENT}
+
   iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - "logs:CreateLogGroup"
+        - "logs:CreateLogStream"
+        - "logs:PutLogEvents"
+        - "ec2:CreateNetworkInterface"
+        - "ec2:DescribeNetworkInterfaces"
+        - "ec2:DeleteNetworkInterface"
+        - "SNS:Publish"
+      Resource:
+        - '*'
 #    - Effect: Allow
 #      Action:
 #      - dynamodb:*
@@ -39,6 +54,8 @@ plugins:
   - serverless-kms-secrets
   - serverless-plugin-custom-roles
   - serverless-plugin-split-stacks
+  - serverless-reqvalidator-plugin
+  - serverless-aws-documentation
 
 custom:
   serverless-mocha-plugin:
@@ -48,13 +65,37 @@ custom:
 #      - bash .tools/startOffline.sh
 #    postTestCommands:
 #      - bash .tools/stopOffline.sh
-  webpackIncludeModules: true
+  webpack:
+    includeModules: true
 #  kmsSecrets: ${file(kms-secrets.${opt:stage, self:provider.stage}.${opt:region, self:provider.region}.yml)}
 
-
-
-#resources:
-#  Resources:
+  # Api Gateway Input validation using Swagger: @see https://github.com/serverless/serverless/issues/3464#issuecomment-356610450
+  documentation:
+    models:
+      - name: CalculateMatchRequest
+        contentType: "application/json"
+        schema:
+          required:
+            - matchId
+            - team1Score
+            - team2Score
+          properties:
+            matchId:
+              type: integer
+            team1Score:
+              type: integer
+            team2Score:
+              type: integer
+resources:
+  Resources:
+    onlyBody:
+      Type: "AWS::ApiGateway::RequestValidator"
+      Properties:
+        Name: 'only-body'
+        RestApiId:
+          Ref: ApiGatewayRestApi
+        ValidateRequestBody: true
+        ValidateRequestParameters: false
 #    SessionsTable:
 #      Type: AWS::DynamoDB::Table
 #      DeletionPolicy: Delete

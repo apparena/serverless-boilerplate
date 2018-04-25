@@ -1,0 +1,31 @@
+# All variables here will be added to the Node ENV.
+
+vpc:
+  securityGroupIds:
+    - sg-12345678
+  subnetIds:
+    - subnet-12345678
+    - subnet-12345678
+
+# Environment variables accessible in NodeJS via env.process.XXX
+ENVIRONMENT:
+  # Serverless base settings
+  SERVERLESS_AWS_ACCOUNT_ID: "12345678"
+  SERVERLESS_STAGE: ${opt:stage, self:provider.stage}
+  SERVERLESS_PROJECT: ${self:service}
+  SERVERLESS_REGION: ${opt:region, self:provider.region}
+
+  # Redis configuration
+  REDIS_HOST: localhost
+  REDIS_PORT: "6379"
+  REDIS_PREFIX: TS3-${opt:stage, self:provider.stage}-
+
+  # Cache settings in seconds
+  CACHE_GET_APPS: "60"
+
+  # Mysql config
+  MYSQL_HOST: localhost
+  MYSQL_NAME: db_name
+  MYSQL_USER: root
+  MYSQL_PASS: root
+

@@ -18,10 +18,31 @@ The Nordcloud serverless-boilerplate is a project template for new serverless se
 With Serverless Framework v1.5 and later, a new project based on the project template is initialized with the command
 
 ```
-> sls install -u https://github.com/nordcloud/serverless-boilerplate -n myservicename
+> sls install -u https://github.com/apparena/serverless-boilerplate -n myservicename
 > cd myservicename
-> npm install
+> yarn
 ```
+## Debugging locally
+
+Please change the `debug` and `debug:invoke` script in `package.json` **if you
+are not using Windows or installed Serverless using Yarn**. You need to
+adapt the Path to your serverless command.
+
+**Debugging HTTP requests:**
+
+1. `yarn debug` will start a debug server
+2. Open `about://inspect` in Chrome browser
+3. Click on `Open dedicated DevTools for Node`
+4. Start debugging in Chrome Dev Tools
+
+**Debugging HTTP requests:**
+
+1. `yarn debug:invoke -f myfunctionname -p
+   functions/myfunctionname/mockdata.json` will debug `myfunctionname`by
+   sending the mockdata.json file to the function.
+2. Open `about://inspect` in Chrome browser
+3. Click on `Open dedicated DevTools for Node`
+4. Start debugging in Chrome Dev Tools
 
 ## Environments
 

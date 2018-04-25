@@ -51,8 +51,8 @@ Open a new terminal and enter this command to see incoming logs for
 ### Call your function
 
 You can either **send a request to your HTTP-Endpoint** (will be
-displayed after successful deployment) or you call your function via
-console.
+displayed after successful deployment) **or you call your function via
+console**.
 
 `SLS_DEBUG=* sls invoke --stage dev -f myFunctionName -p
 functions/myFunctionName/mockData.json`
@@ -76,7 +76,7 @@ adapt the Path to your serverless command.
 3. Click on `Open dedicated DevTools for Node`
 4. Start debugging in Chrome Dev Tools
 
-**Debugging HTTP requests:**
+**Debugging local function invokations:**
 
 1. `yarn debug:invoke -f myfunctionname -p
    functions/myfunctionname/mockdata.json` will debug `myfunctionname`by

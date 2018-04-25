@@ -2,16 +2,19 @@
 
 Heavily inspired by [Nordcloud Serverless boilerplate](https://github.com/nordcloud/serverless-boilerplate).
 
-The Nordcloud serverless-boilerplate is a project template for new serverless services. Contents of the template:
-* plugin [serverless-mocha-plugin](https://github.com/SC5/serverless-mocha-plugin): enable test driven development using mocha, creation of functions from command line
-* plugin [serverless-offline](https://github.com/dherault/serverless-offline): run your services offline for e.g. testing
-* plugin [serverless-webpack](https://github.com/elastic-coders/serverless-webpack): optimize pacakge size with webpack
-* plugin [serverless-kms-secrets](https://github.com/SC5/serverless-kms-secrets): ease handling of KMS encrypted secrets
-* plugin [serverless-plugin-custom-roles](https://www.npmjs.com/package/serverless-plugin-custom-roles): enable setting roles on a per function basis
-* plugin [serverless-plugin-split-stacks](https://github.com/dougmoscrop/serverless-plugin-split-stacks): Split Cloudformation stack to multiple stacks to overcome the 200 resource limit
+The App-Arena serverless-boilerplate is a project template for new serverless services. Contents of the template:
+* file `lib/redis.js`: Prepared Elasticache Redis connection
+* file `lib/mysql.js`: Prepared Mysql connection to use with RDS
+* file `lib/sns.js`: Prepared SNS connection to publish Messages on SNS topics outside the VPC
 * file `serverless.yml.json`: Register plugins above
 * file `webpack.config.js`: Settings for webpack-plugin
 * file `templates/function.ejs`: Template to use for new functions
+* plugin [serverless-mocha-plugin](https://github.com/SC5/serverless-mocha-plugin): enable test driven development using mocha, creation of functions from command line
+* plugin [serverless-offline](https://github.com/dherault/serverless-offline): run your services offline for e.g. testing
+* plugin [serverless-webpack](https://github.com/elastic-coders/serverless-webpack): optimize pacakge size with **Webpack 4**
+* plugin [serverless-kms-secrets](https://github.com/SC5/serverless-kms-secrets): ease handling of KMS encrypted secrets
+* plugin [serverless-plugin-custom-roles](https://www.npmjs.com/package/serverless-plugin-custom-roles): enable setting roles on a per function basis
+* plugin [serverless-plugin-split-stacks](https://github.com/dougmoscrop/serverless-plugin-split-stacks): Split Cloudformation stack to multiple stacks to overcome the 200 resource limit
 
 ## Creating new project
 
@@ -64,17 +67,20 @@ You can compare your project setup (dependencies, devdependencies, scripts) with
 > npm run compare-boilerplate
 ```
 
-The script reports only for items that are in the boilerplate and differ from your current project.
+The script reports only for items that are in the boilerplate and differ
+ from your current project.
 
 ## TODO
 
-Please see project GitHub [issue tracker](https://github.com/SC5/sc5-serverless-boilerplate/issues).
+Please see project GitHub
+[issue tracker](https://github.com/apparena/serverless-boilerplate/issues)
+or send us a pull request.
 
 ## Release History
 
-* 2016/11/02 - v1.0.0 - Initial version for Serverless 1.0
+* 2018/04/25 - v1.1.0 - Added configuration.
 
 ## License
 
-Copyright (c) 2016 [Nordcloud](https://www.nordcloud.com/), licensed for users and contributors under MIT license.
-https://github.com/nordcloud/serverless-boilerplate/blob/master/LICENSE-MIT
+Copyright (c) 2018 [App-Arena](https://www.app-arena.com/), licensed for users and contributors under MIT license.
+https://github.com/apparena/serverless-boilerplate/blob/master/LICENSE-MIT

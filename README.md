@@ -17,15 +17,52 @@ The App-Arena serverless-boilerplate is a project template for new serverless se
 * plugin [serverless-plugin-custom-roles](https://www.npmjs.com/package/serverless-plugin-custom-roles): enable setting roles on a per function basis
 * plugin [serverless-plugin-split-stacks](https://github.com/dougmoscrop/serverless-plugin-split-stacks): Split Cloudformation stack to multiple stacks to overcome the 200 resource limit
 
-## Creating new project
+## Getting started
 
-With Serverless Framework v1.5 and later, a new project based on the project template is initialized with the command
-
+With Serverless Framework v1.5 and later, a new project based on the
+project template is initialized with the command
 ```
 > sls install -u https://github.com/apparena/serverless-boilerplate -n myservicename
 > cd myservicename
 > yarn
 ```
+### Create a new function
+
+Create a new function including tests and two HTTP endpoints (they are
+optional. Remove the `--hhtpEvent` if you don't want them...
+
+`sls create function -f myFunctionName --handler
+functions/myFunctionName/index.handler --httpEvent "post myResource"
+--httpEvent "get myResource"`
+
+### Deploy your function
+
+Deploy your function to your AWS account.
+
+` sls deploy --stage dev`
+
+### Display logs
+
+Open a new terminal and enter this command to see incoming logs for
+`myFunctionName` in `dev` environment.
+
+`sls logs -f myFunctionName --stage dev --startTime 10m -t`
+
+### Call your function
+
+You can either **send a request to your HTTP-Endpoint** (will be
+displayed after successful deployment) or you call your function via
+console.
+
+`SLS_DEBUG=* sls invoke --stage dev -f myFunctionName -p
+functions/myFunctionName/mockData.json`
+
+Remove the `-p functions/myFunctionName/mockData.json` parameter if you
+do not want to send a mock event to your function.
+
+See https://docs.aws.amazon.com/lambda/latest/dg/eventsources.html for
+sample events.
+
 ## Debugging locally
 
 Please change the `debug` and `debug:invoke` script in `package.json` **if you

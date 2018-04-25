@@ -3,9 +3,10 @@
 Heavily inspired by [Nordcloud Serverless boilerplate](https://github.com/nordcloud/serverless-boilerplate).
 
 The App-Arena serverless-boilerplate is a project template for new serverless services. Contents of the template:
-* file `lib/redis.js`: Prepared Elasticache Redis connection
-* file `lib/mysql.js`: Prepared Mysql connection to use with RDS
-* file `lib/sns.js`: Prepared SNS connection to publish Messages on SNS topics outside the VPC
+* AWS **VPC configuration**
+* file `lib/redis.js`: Prepared **Elasticache Redis** connection
+* file `lib/mysql.js`: Prepared **RDS Mysql** connection
+* file `lib/sns.js`: Prepared **SNS connection** to publish Messages on SNS topics (See [Publishing on SNS](Publishing on SNS) )
 * file `serverless.yml.json`: Register plugins above
 * file `webpack.config.js`: Settings for webpack-plugin
 * file `templates/function.ejs`: Template to use for new functions
@@ -69,6 +70,12 @@ You can compare your project setup (dependencies, devdependencies, scripts) with
 
 The script reports only for items that are in the boilerplate and differ
  from your current project.
+
+## Publishing on SNS
+
+If you deploy your function into a VPC you cannot publish SNS messages, as the service runs outside of the VPC.
+To enable your functions to publish from within the VPC to SNS you need to
+[setup a PrivateLink](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/endpoint-service.html) for your VPC and use a SecurityGroup with Port 443 open.
 
 ## TODO
 

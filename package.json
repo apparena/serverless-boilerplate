@@ -43,7 +43,7 @@
   },
   "scripts": {
     "debug": "SET SLS_DEBUG=* && node --inspect %USERPROFILE%\\AppData\\Roaming\\npm\\node_modules\\serverless\\bin\\serverless offline -s dev",
-    "debug:invoke": "SET SLS_DEBUG=* && node --inspect %USERPROFILE%\\AppData\\Roaming\\npm\\node_modules\\serverless\\bin\\serverless invoke local",
+    "debug:invoke": "SET SLS_DEBUG=* && node --inspect %USERPROFILE%\\AppData\\Roaming\\npm\\node_modules\\serverless\\bin\\serverless invoke local --watch",
     "test": "SLS_DEBUG=true serverless invoke test",
     "lint": "eslint .",
     "nsp": "node_modules/.bin/nsp check",

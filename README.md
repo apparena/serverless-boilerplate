@@ -78,12 +78,20 @@ adapt the Path to your serverless command.
 
 **Debugging local function invokations:**
 
+We already prepared several AWS example event payloads in `/test/events/*` you can use as template for your
+functions payload. As well you will find an example debug script in the package.json file
+E.g. `yarn debug:myFunction --stage production`
+
 1. `yarn debug:invoke -f myfunctionname -p
    functions/myfunctionname/mockdata.json` will debug `myfunctionname`by
    sending the mockdata.json file to the function.
 2. Open `about://inspect` in Chrome browser
 3. Click on `Open dedicated DevTools for Node`
 4. Start debugging in Chrome Dev Tools
+
+### View logs
+
+Checkout the example script in your package.json file: `yarn logs:myFunction --stage production`
 
 ## Environments
 

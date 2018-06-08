@@ -1,0 +1,22 @@
+{
+  "Records": [
+    {
+      "EventVersion": "1.0",
+      "EventSubscriptionArn":
+      "arn:aws:sns:eu-central-1:123456789012:TS3-prod-CalculateApp:e4fff5b2-ace8-488e-b093-6c15a0f493b1",
+      "EventSource": "aws:sns",
+      "Sns": {
+        "Type" : "Notification",
+        "MessageId" : "a46fd0a0-79a1-56ee-935c-832bcf3610cd",
+        "TopicArn" : "arn:aws:sns:eu-central-1:134856371062:aa-data-production-RichDataTopic",
+        "Subject" : "Company-3448|App-12345: All aggregations processed",
+        "Message" : "{\"context\":{\"page\":{\"path\":\"/smartlink.php\",\"referrer\":\"http://www.app-arena.com/fr/\",\"search\":\"?url=v3%2Fmatches&appId=22212&lang=fr_FR\",\"title\":\"jeu de pronostics\",\"url\":\"https://www.tippspiel.cc/smartlink.php?appId=12345&lang=fr_FR\"},\"userAgent\":\"Mozilla/5.0 (iPad; CPU OS 9_3_5 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13G36 Safari/601.1\",\"library\":{\"name\":\"analytics.js\",\"version\":\"2.11.0\"},\"campaign\":{},\"ip\":\"85.1.123.123\"},\"integrations\":{},\"properties\":{\"path\":\"/smartlink.php\",\"referrer\":\"http://www.app-arena.com/fr/\",\"search\":\"?url=v3%2Fmatches&appId=12345&lang=fr_FR\",\"title\":\"jeu de pronostics\",\"url\":\"https://www.tippspiel.cc/smartlink.php?appId=12345&lang=fr_FR\"},\"anonymousId\":\"292dbd76-e7b2-49bb-bef8-0925c9df121d\",\"timestamp\":\"2018-06-01T21:02:14.292Z\",\"type\":\"page\",\"companyId\":3448,\"appId\":12345,\"userId\":null,\"sentAt\":\"2018-06-01T21:02:14.302Z\",\"messageId\":\"da197654-ebba-4b65-9b58-8b94964f83e2\",\"receivedAt\":\"2018-06-01T21:02:15.222Z\",\"event\":\"page\",\"stage\":\"production\",\"_aggregations\":[{\"FunctionName\":\"aa-data-enrichment-geoip-undefined-index\",\"Payload\":\"{\\\"ip\\\":\\\"85.1.123.123\\\"}\"}]}",
+        "Timestamp" : "2018-06-01T21:02:15.505Z",
+        "SignatureVersion" : "1",
+        "Signature" : "W3QsysgoUSz5Lpm4QczII6LztlLNXmTBM3oxXhROBWPMpG3mkNz0poYeYO6FXjHlJ3BJXyJFrV4s51E5LyQteOGoZjkNrCunnroY4XsoCZIcv90XnfmJzZ3tCxHn4dgmwmbCm3NiQR6KBcpQfC+N8PkhqUJCgIZgJilO4NFG1QyiHuHdNQsR6cd1b/pv8amx5NRKPruJID5YKPwFCA9MzfUZeQrx6evRjV37bAIto3Iq5SxCU06fuQ7ex79W+kd9Z3Sre4lYXJO0Hk8AzmuZwxLy2271keXcD8IxxR+iUiRfDa+wnXBhrRBquerm0rHvEaRvpOGuBLCuSQTgsrc7Og==",
+        "SigningCertURL" : "https://sns.eu-central-1.amazonaws.com/SimpleNotificationService-ac565b8b1a6c5d002d285f9598aa1d9b.pem",
+        "UnsubscribeURL" : "https://sns.eu-central-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:eu-central-1:134856371062:aa-data-production-RichDataTopic:b1c737c2-1a37-4860-91d3-f7f566b736ad"
+      }
+    }
+  ]
+}
